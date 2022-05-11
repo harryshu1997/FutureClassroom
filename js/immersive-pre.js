@@ -447,7 +447,7 @@ function hitTest(inputSource, frame, refSpace) {
     }
 
     let hitResult = global.scene().hitTest(targetRayPose.transform);
-    if (hitResult) {
+    if (hitResult ) {
         // for (let source of audioSources) {
         //     if (hitResult.node === source.node) {
         //         // Associate the input source with the audio source object until

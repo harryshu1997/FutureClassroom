@@ -75,6 +75,51 @@ export let mAimZ = Z => {
    return [ X[0],X[1],X[2],0, Y[0],Y[1],Y[2],0, Z[0],Z[1],Z[2],0, 0,0,0,1 ];
 }
 
+export let mDistance = (A,B) => {
+   let x = A[12];
+   let y = A[13];
+   let z = A[14];
+   let xx = B[12];
+   let yy = B[13];
+   let zz = B[14];
+
+   let dist = Math.sqrt(Math.pow(x-xx,2) + Math.pow(y-yy,2) + Math.pow(z-zz,2));
+   return dist;
+}
+
+
+export let mGrab = (A,B,gap) =>{
+   let x = A[12];
+   let y = A[13];
+   let z = A[14];
+   let xx = B[12];
+   let yy = B[13];
+   let zz = B[14];
+
+   let dist = Math.sqrt(Math.pow(x-xx,2) + Math.pow(y-yy,2) + Math.pow(z-zz,2));
+   if(dist < gap){
+      return true;
+   }else{
+      return false;
+   }
+}
+
+
+
+export let mTrack = (A, B) =>{
+   let x = A[12];
+   let y = A[13];
+   let z = A[14];
+   let xx = B[12];
+   let yy = B[13];
+   let zz = B[14];
+   let aroundY = Math.atan((xx-x)/(zz-z)); //(x/z plane)
+   let aroundX = Math.atan((zz-z)/(yy-y)); //(y/z plane)
+   let aroundZ = Math.atan((yy-y)/(xx-x)); //(x/y plane)
+   return [aroundX, aroundY, aroundZ];
+}
+
+
 export let mHitRect = (A, B) => {
    let L = [[0,0,1,0],[1,0,0,1],[-1,0,0,1],[0,1,0,1],[0,-1,0,1]];
    let M = mTranspose(mMultiply(mInverse(B), A));

@@ -7,8 +7,10 @@
     "test": "tests"
   },
   "dependencies": {
+    "babylonjs": "^5.0.3",
+    "three.js": "^0.77.1",
     "webxr-polyfill": "^2.0.3",
-    "ws": "^7.4.1"
+    "ws": "^7.5.7"
   },
   "scripts": {
     "test": "node server.js -env local",
@@ -27,7 +29,7 @@
   },
   "homepage": "https://github.com/snowymo/immersive-presentation#readme",
   "devDependencies": {
-    "gltf-import-export": "^1.0.16",
+    "gltf-import-export": "^1.0.18",
     "prettier": "2.2.1"
   }
 }
